@@ -9,23 +9,28 @@ namespace EmployeeWageComputation
     internal class Employee
     {
         const int IS_FULL_TIME = 0, IS_PART_TIME = 1, WAGE_PER_HR = 20, FULL_TIME_HR = 8, PART_TIME_HR = 4;
-        int totalEmpWage;
+        int totalEmpWage = 0, empHrs = 0;
         public void CalculateEmpWage()
         {
             Random random = new Random();
             int empCheck = random.Next(0, 3);
-            if (empCheck == IS_FULL_TIME)
+            switch (empCheck)
             {
-                totalEmpWage = WAGE_PER_HR * FULL_TIME_HR;
-                Console.WriteLine(totalEmpWage);
+                case IS_FULL_TIME:
+                    empHrs = FULL_TIME_HR;
+                    break;
+                case IS_PART_TIME:
+                    empHrs = PART_TIME_HR;
+                    break;
             }
-            if (empCheck == IS_PART_TIME)
-            {
-                totalEmpWage = WAGE_PER_HR * PART_TIME_HR;
-            }
+
+            totalEmpWage = WAGE_PER_HR * empHrs;
+            Console.WriteLine(totalEmpWage);
 
         }
-    }
 
 
     }
+}
+
+
