@@ -13,7 +13,7 @@ namespace EmployeeWageComputation
         public void CalculateEmpWage()
         {
             Random random = new Random();
-            for (int i = 0; i < WORKING_DAYS; i++) 
+            for (int i = 0; i < WORKING_DAYS && empHrs<100; i++) 
             {
                 int empCheck = random.Next(0, 3);
                 switch (empCheck)
