@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeWageComputation", "EmployeeWageComputation.csproj", "{EEAABEC4-963C-46BB-9905-E8C6D12CD29A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINEComparision", "..\..\LineComparision\LINEComparision\LINEComparision.csproj", "{39D006F1-DC3E-4D8B-AD94-732ACF8C720F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EEAABEC4-963C-46BB-9905-E8C6D12CD29A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEAABEC4-963C-46BB-9905-E8C6D12CD29A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEAABEC4-963C-46BB-9905-E8C6D12CD29A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39D006F1-DC3E-4D8B-AD94-732ACF8C720F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D006F1-DC3E-4D8B-AD94-732ACF8C720F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D006F1-DC3E-4D8B-AD94-732ACF8C720F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D006F1-DC3E-4D8B-AD94-732ACF8C720F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
