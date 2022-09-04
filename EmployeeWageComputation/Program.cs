@@ -1,13 +1,17 @@
-﻿namespace EmployeeWageComputation
+﻿using static EmployeeWageComputation.Employee;
+
+namespace EmployeeWageComputation
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Employee emp = new Employee();
-            emp.ComputeEmpWage("Dmart", 20, 100, 20);
-            emp.ComputeEmpWage("Amdocs", 21, 150, 20);
-            emp.ComputeEmpWage("Infosys", 19, 120, 21);
+            Employee dMRT = new Employee("DMART", 20, 2, 10);
+            Employee reliance = new Employee("RELIANCE", 10, 4, 20);
+            dMRT.ComputeEmpWage();
+            Console.WriteLine(dMRT.toString());
+            reliance.ComputeEmpWage();
+           Console.WriteLine(reliance.toString());
         }
     }
 }
