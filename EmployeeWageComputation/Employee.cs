@@ -8,56 +8,58 @@ namespace EmployeeWageComputation
 {
     internal class Employee
     {
-            const int IS_PART_TIME = 1, IS_FULL_TIME = 2;
-            private string company;
-            private int empRatePerHr;
-            private int NoOfWorkingDays;
-            private int maxHrPerMonth;
-            private int totalEmpWage;
+        const int IS_PART_TIME = 1;
+        const int IS_FULL_TIME = 2;
+        private int numOfCompany = 0;
 
-            public Employee(string company, int empRatePerHr, int NoOfWorkingDays, int maxHrPerMonth)
+        private CompanyEmpWage[] companyEmpWagesArray;
+        public Employee()
+        {
+            this.companyEmpWagesArray = new CompanyEmpWage[4];
+        }
+        public void addCompanEmpyWage(string company, int empRatePerHr, int noOfWorkingDays, int maxHrPerMonth)
+        {
+            companyEmpWagesArray[this.numOfCompany] = new CompanyEmpWage(company, empRatePerHr, noOfWorkingDays, maxHrPerMonth);
+            numOfCompany++;
+
+        }
+        public void ComputeEmpWage()
+        {
+
+            for (int i = 0; i < numOfCompany; i++)
             {
-                this.company = company;
-                this.empRatePerHr = empRatePerHr;
-                this.NoOfWorkingDays = NoOfWorkingDays;
-                this.maxHrPerMonth = maxHrPerMonth;
+                companyEmpWagesArray[i].setTotalEmpWage(this.ComputeEmpWage(this.companyEmpWagesArray[i]));
+                Console.WriteLine(this.companyEmpWagesArray[i].toString());
             }
-           public void ComputeEmpWage()
+        }
+        private int ComputeEmpWage(CompanyEmpWage companyEmpWage)
+        {
+            int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
+            while (totalEmpHrs <= companyEmpWage.maxHrPerMonth && totalWorkingDays < companyEmpWage.NoOfWorkingDays)
             {
-                int empHrs = 0, totalEmpHr = 0, totalWorkingdays = 0;
-
-                while (totalEmpHr <= this.maxHrPerMonth && totalWorkingdays < this.NoOfWorkingDays)
+                totalWorkingDays++;
+                Random random = new Random();
+                int empcheck = random.Next(0, 3);
+                switch (empcheck)
                 {
-                    totalWorkingdays++;
-                    Random random = new Random();
-                    int empCheck = random.Next(0, 3);
-                    switch (empCheck)
-                    {
+                    case IS_PART_TIME:
+                        empHrs = 4;
+                        break;
                     case IS_FULL_TIME:
                         empHrs = 8;
                         break;
-
-                    case IS_PART_TIME:
-                            empHrs = 4;
-                            break;
-                     
-                        default:
-                            empHrs += 0;
-                            break;
-                    }
                 }
-                totalEmpHr = empHrs;
-                Console.WriteLine("Day: " + totalWorkingdays + "Emp Hr: " + empHrs);
-
-                totalEmpWage = totalEmpHr * this.empRatePerHr;
-             
+                totalEmpHrs += empHrs;
+                Console.WriteLine("Days:" + totalWorkingDays + "EmpHr:" + empHrs);
             }
-              public string toString()
-            {
-                return "total Emp Wage For Company: " + this.company + "is:" + this.totalEmpWage;
-
-            }
+            return totalEmpHrs * companyEmpWage.empRatePerHr;
         }
-    
 
-}
+        }
+    }
+
+
+
+           
+            
+          
